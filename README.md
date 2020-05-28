@@ -1,6 +1,7 @@
-# Google Software Product Sprint
+# Google Software Product Sprint Summer 2020
+## Participant: Karol Gutierrez, ITESM
 
-This repo contains the projects you'll work on throughout SPS.
+This repo contains the projects I'll work on throughout SPS during this Summer.
 
 To get started:
 
