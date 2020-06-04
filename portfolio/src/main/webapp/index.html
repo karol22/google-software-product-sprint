@@ -7,19 +7,36 @@
     <script src="script.js"></script>
   </head>
   <body>
-    <div id="content">
-      <h1>Hi, I'm Karol</h1>
+    <div class="header">
+      <h1 class="page-heading">
+        Karol Portfolio
+      </h1>
+      <div class="social">
+        <a href="http://github.com/karol22"  target="_blank" >
+          <img  class="logo-media" src="images/logos/github.png" />
+        </a>
+        <a href="https://www.linkedin.com/in/karol-jose-gutierrez-suarez-06a445132/" target="_blank">
+          <img class="logo-media" src="images/logos/linkedin.png" />
+        </a>
+      </div>
+    </div>
+    <div id="content" class="main center">
       <img class="profile-picture" src="images/selfie.png" />
+      <h2 class="greeting">Hi, I'm Karol Gutiérrez</h2>
       <p>
         I am a senior Computer Science student from Mexico. I study at Tecnológico
         de Monterrey in Guadalajara.
         My main interests are programming and mathematics. I love to build things 
         from scratch and learn new things. I want to develop something that helps 
         many people as well as bring technology to the youth of Mexico.
-        </p>
-      <p>Click here to get a random message:</p>
+      </p>
+
+      <br/>
+      <p>Click here to get a random quote from Avatar: The Last Airbender</p>
       <button onclick="addRandomQuote()">Press here</button>
       <div id="quote-container"></div>
+      <br/>
+      
     </div>
   </body>
 </html>
