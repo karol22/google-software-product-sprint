@@ -13,16 +13,23 @@
 // limitations under the License.
 
 /**
- * Adds a random greeting to the page.
+ * Adds a random quote to the page.
  */
-function addRandomGreeting() {
-  const greetings =
-      ['Hello world!', '¡Hola Mundo!', '你好，世界！', 'Bonjour le monde!'];
+function addRandomQuote() {
+  const quotes =[
+      '"Pride is not the opposite of shame, but it\'s source. True humility is the only antidote to shame." - General Iroh',
+      '"It is important to draw wisdom from different places. If you take it from only one place, it becomes rigid and stale." – General Iroh',
+      '"Sometimes the best way to solve your own problems is to help someone else." - General Iroh',
+      '"You must look within yourself to save yourself from your other self. Only then will your true self reveal itself." – General Iroh',
+      '"The past can be a great teacher." – Aang',
+      '"When we hit our lowest point, we are open to the greatest change." – Aang',
+      '"It’s easy to do nothing, it’s hard to forgive. – Aang"'
+  ];
 
-  // Pick a random greeting.
-  const greeting = greetings[Math.floor(Math.random() * greetings.length)];
+  // Pick a random quote.
+  const quote = quotes[Math.floor(Math.random() * quotes.length)];
 
   // Add it to the page.
-  const greetingContainer = document.getElementById('greeting-container');
-  greetingContainer.innerText = greeting;
+  const quotesContainer = document.getElementById('quote-container');
+  quotesContainer.innerText = quote;
 }
