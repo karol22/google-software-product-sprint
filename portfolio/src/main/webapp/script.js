@@ -33,3 +33,20 @@ function addRandomQuote() {
   const quotesContainer = document.getElementById('quote-container');
   quotesContainer.innerText = quote;
 }
+
+/**
+ * Change cat image in the page.
+ */
+function changeCat() {
+  num_images = 5;
+
+  // Pick a random quote.
+  const index = Math.floor(Math.random() * num_images);
+  const path = 'images/cats/'
+  const image_name = 'cat_' + index + '.jpeg'
+  const src = path + image_name;
+
+  // Add it to the page.
+  const catImage = document.getElementById('cat-image');
+  catImage.src = src;
+}

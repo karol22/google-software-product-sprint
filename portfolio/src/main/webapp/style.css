@@ -21,6 +21,15 @@ p{
 #greeting-container {
   margin-top: 20px;
 }
+#cat-image{
+  height: 250px;
+  margin: 30px;
+  transition: transform .5s;
+}
+
+#cat-image:hover{
+  transform: scale(1.5);
+}
 
 .center {
   display: block;
