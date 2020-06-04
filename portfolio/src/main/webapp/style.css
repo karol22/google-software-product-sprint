@@ -7,3 +7,10 @@
 #greeting-container {
   margin-top: 20px;
 }
+
+.profile-picture{
+  border-radius: 50%;
+  display: block;
+  margin: auto;
+  width: 30%;
+}
