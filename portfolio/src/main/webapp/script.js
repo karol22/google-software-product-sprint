@@ -56,7 +56,8 @@ function getComments() {
   fetch('/data').then(response => response.json()).then((comments) => {
     for (let i = 0; i< comments.length; i++){
       const comment = document.createElement("P");
-      comment.innerHTML = comments[i];  
+      comment.innerHTML = comments[i];
+      comment.classList.add("comment");  
       commentsContainer.appendChild(comment);
     }
   });
