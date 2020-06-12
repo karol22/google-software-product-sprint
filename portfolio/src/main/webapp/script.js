@@ -52,13 +52,18 @@ function changeCat() {
 }
 
 // Loads /data content from server and displays comments to the web page.
-function showHelloMessage() {
-  fetch('/data').then(response => response.text()).then((message) => {
-    document.getElementById('hello').innerHTML = message;
+function getComments() {
+  const commentsContainer = document.getElementById('comments-container');
+  fetch('/data').then(response => response.json()).then((comments) => {
+    for (let i = 0; i< comments.length; i++){
+      const comment = document.createElement("P");
+      comment.innerHTML = comments[i];  
+      commentsContainer.appendChild(comment);
+    }
   });
 }
 
 // Performs initialization on main page.
 function loadPage(){
-  showHelloMessage();
+    getComments();
 }
