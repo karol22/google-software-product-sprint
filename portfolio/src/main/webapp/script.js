@@ -51,7 +51,7 @@ function changeCat() {
   catImage.src = src;
 }
 
-// Loads /data content from server and displays it to the web page.
+// Loads /data content from server and displays comments to the web page.
 function showHelloMessage() {
   fetch('/data').then(response => response.text()).then((message) => {
     document.getElementById('hello').innerHTML = message;
