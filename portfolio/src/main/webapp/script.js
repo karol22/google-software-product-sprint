@@ -58,6 +58,7 @@ function showHelloMessage() {
   });
 }
 
+// Performs initialization on main page.
 function loadPage(){
   showHelloMessage();
 }
