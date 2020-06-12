@@ -50,13 +50,13 @@ function changeCat() {
   const catImage = document.getElementById('cat-image');
   catImage.src = src;
 }
-
-function hello() {
+// Loads /data content from server and displays it to the web page.
+function showHelloMessage() {
   fetch('/data').then(response => response.text()).then((message) => {
     document.getElementById('hello').innerHTML = message;
   });
 }
 
 function loadPage(){
-    hello();
+  showHelloMessage();
 }
