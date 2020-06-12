@@ -51,12 +51,5 @@ function changeCat() {
   catImage.src = src;
 }
 
-function hello() {
-  fetch('/data').then(response => response.text()).then((message) => {
-    document.getElementById('hello').innerHTML = message;
-  });
-}
-
 function loadPage(){
-    hello();
 }
