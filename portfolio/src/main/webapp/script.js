@@ -51,5 +51,17 @@ function changeCat() {
   catImage.src = src;
 }
 
+function getComments() {
+  const commentsContainer = document.getElementById('comments-container');
+  fetch('/data').then(response => response.json()).then((comments) => {
+    for (let i = 0; i< comments.length; i++){
+      const comment = document.createElement("P");
+      comment.innerHTML = comments[i];  
+      commentsContainer.appendChild(comment);
+    }
+  });
+}
+
 function loadPage(){
+    getComments();
 }
