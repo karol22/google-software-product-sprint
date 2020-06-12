@@ -50,6 +50,7 @@ function changeCat() {
   const catImage = document.getElementById('cat-image');
   catImage.src = src;
 }
+
 // Loads /data content from server and displays it to the web page.
 function showHelloMessage() {
   fetch('/data').then(response => response.text()).then((message) => {
