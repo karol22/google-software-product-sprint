@@ -51,14 +51,20 @@ function changeCat() {
   catImage.src = src;
 }
 
-// Loads /data content from server and displays it to the web page.
-function showHelloMessage() {
-  fetch('/data').then(response => response.text()).then((message) => {
-    document.getElementById('hello').innerHTML = message;
+// Loads /data content from server and displays comments to the web page.
+function getComments() {
+  const commentsContainer = document.getElementById('comments-container');
+  fetch('/data').then(response => response.json()).then((comments) => {
+    for (let i = 0; i < comments.length; i++){
+      const comment = document.createElement("P");
+      comment.innerHTML = comments[i];
+      comment.classList.add("comment");  
+      commentsContainer.appendChild(comment);
+    }
   });
 }
 
 // Performs initialization on main page.
 function loadPage(){
-  showHelloMessage();
+  getComments();
 }
