@@ -15,12 +15,12 @@
 package com.google.sps.servlets;
 
 import com.google.gson.Gson;
+import java.util.ArrayList;
 import java.io.IOException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.util.ArrayList;
 
 
 /** Servlet that returns some example content. TODO: modify this file to handle comments data */
@@ -28,16 +28,18 @@ import java.util.ArrayList;
 public class DataServlet extends HttpServlet {
     private ArrayList<String> comments = new ArrayList<String>();
 
+  // Returns comments in JSON format
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-      response.setContentType("application/json;");
-      String json = convertToJson(this.comments);
-      response.getWriter().println(json);
+    response.setContentType("application/json;");
+    String json = convertToJson(this.comments);
+    response.getWriter().println(json);
   }
 
+  // Takes incoming comments and adds them to list
   @Override
   public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-    String text = getParameter(request, "text-input", "");
+    String text = getParameter(request, "text-comment", "");
 
     // Add new comment only if the string is more than just white spaces
     if(text.trim().length() > 0){
@@ -48,7 +50,7 @@ public class DataServlet extends HttpServlet {
   }
 
     /**
-    * Converts a ServerStats instance into a JSON string using the Gson library.
+    * Converts an ArrayList into a JSON string using the Gson library.
     */
     private String convertToJson(ArrayList arr) {
       Gson gson = new Gson();
@@ -56,6 +58,9 @@ public class DataServlet extends HttpServlet {
       return json;
     }
 
+    /**
+    * Get parameter value in HTTP request.
+    */
     private String getParameter(HttpServletRequest request, String name, String defaultValue) {
       String value = request.getParameter(name);
       if (value == null) {

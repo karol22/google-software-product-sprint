@@ -55,7 +55,7 @@ function changeCat() {
 function getComments() {
   const commentsContainer = document.getElementById('comments-container');
   fetch('/data').then(response => response.json()).then((comments) => {
-    for (let i = 0; i< comments.length; i++){
+    for (let i = 0; i < comments.length; i++){
       const comment = document.createElement("P");
       comment.innerHTML = comments[i];
       comment.classList.add("comment");  
@@ -66,5 +66,5 @@ function getComments() {
 
 // Performs initialization on main page.
 function loadPage(){
-    getComments();
+  getComments();
 }

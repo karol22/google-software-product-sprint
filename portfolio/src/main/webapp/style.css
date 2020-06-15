@@ -1,9 +1,9 @@
 h1{
-    font-family: courier,arial,helvetica;
+  font-family: courier,arial,helvetica;
 }
 
 h2{
-    font-family: courier,arial,helvetica;
+  font-family: courier,arial,helvetica;
 }
 
 p{
@@ -26,11 +26,11 @@ button:hover {
 }
 
 .comment{
-    border-color:  #2FCB1A;
-    border-style: solid;
-    font-size: medium;
-    margin: 10px;
-    padding: 10px;
+  border-color:  #2FCB1A;
+  border-style: solid;
+  font-size: medium;
+  margin: 10px;
+  padding: 10px;
 }
 
 #content {
@@ -57,7 +57,7 @@ button:hover {
 }
 
 #quote-container{
-    font-style: italic;
+  font-style: italic;
 }
 
 .center {
