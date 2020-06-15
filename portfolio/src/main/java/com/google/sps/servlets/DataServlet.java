@@ -41,14 +41,14 @@ public class DataServlet extends HttpServlet {
     PreparedQuery results = datastore.prepare(query);
 
     ArrayList<String> comments = new ArrayList<>();
-      for (Entity entity : results.asIterable()) {
-        String comment = (String) entity.getProperty("text");
-        comments.add(comment);
-      }
+    for (Entity entity : results.asIterable()) {
+      String comment = (String) entity.getProperty("text");
+      comments.add(comment);
+    }
 
-      response.setContentType("application/json;");
-      String json = convertToJson(comments);
-      response.getWriter().println(json);
+    response.setContentType("application/json;");
+    String json = convertToJson(comments);
+    response.getWriter().println(json);
   }
 
   // Takes incoming comments and adds them to list
