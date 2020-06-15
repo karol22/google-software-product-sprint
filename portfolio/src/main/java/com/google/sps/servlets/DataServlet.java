@@ -58,11 +58,11 @@ public class DataServlet extends HttpServlet {
 
     // Add new comment only if the string is more than just white spaces
     if(text.trim().length() > 0){
-      long timestamp = System.currentTimeMillis();
+      long timestampMs = System.currentTimeMillis();
 
       Entity taskEntity = new Entity("Comment");
       taskEntity.setProperty("text", text);
-      taskEntity.setProperty("timestamp", timestamp);
+      taskEntity.setProperty("timestampMs", timestampMs);
 
       DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
       datastore.put(taskEntity);
