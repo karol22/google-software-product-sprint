@@ -20,6 +20,9 @@ import com.google.appengine.api.datastore.Entity;
 import com.google.appengine.api.datastore.PreparedQuery;
 import com.google.appengine.api.datastore.Query;
 import com.google.appengine.api.datastore.Query.SortDirection;
+import com.google.cloud.translate.Translate;
+import com.google.cloud.translate.TranslateOptions;
+import com.google.cloud.translate.Translation;
 import com.google.gson.Gson;
 import java.util.ArrayList;
 import java.io.IOException;
@@ -35,18 +38,29 @@ public class DataServlet extends HttpServlet {
   // Returns comments in JSON format
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    String lang = request.getParameter("lang");
     Query query = new Query("Comment").addSort("timestampMs", SortDirection.DESCENDING);
 
     DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
     PreparedQuery results = datastore.prepare(query);
+    
+    Translate translate = TranslateOptions.getDefaultInstance().getService();
 
     ArrayList<String> comments = new ArrayList<>();
     for (Entity entity : results.asIterable()) {
       String comment = (String) entity.getProperty("text");
-      comments.add(comment);
+      if(lang.length()>0){
+        Translation translation =
+        translate.translate(comment, Translate.TranslateOption.targetLanguage(lang));
+        String translatedText = translation.getTranslatedText();
+        comments.add(translatedText);
+      } else {
+        comments.add(comment);
+      }
     }
 
-    response.setContentType("application/json;");
+    response.setContentType("application/json; charset=UTF-8;");
+    response.setCharacterEncoding("UTF-8");
     String json = convertToJson(comments);
     response.getWriter().println(json);
   }

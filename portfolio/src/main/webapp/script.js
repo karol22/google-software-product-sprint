@@ -53,8 +53,12 @@ function changeCat() {
 
 // Loads /data content from server and displays comments to the web page.
 function getComments() {
+  const languagesDropdown = document.getElementById("languages");
+  const language = languagesDropdown.options[languagesDropdown.selectedIndex].value;
   const commentsContainer = document.getElementById('comments-container');
-  fetch('/data').then(response => response.json()).then((comments) => {
+
+  fetch('/data?lang='+language).then(response => response.json()).then((comments) => {
+    commentsContainer.innerHTML = "";
     for (let i = 0; i < comments.length; i++){
       const comment = document.createElement("P");
       comment.innerHTML = comments[i];
